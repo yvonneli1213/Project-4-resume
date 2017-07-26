@@ -1,0 +1,53 @@
+/*
+This is empty on purpose! Your code to build the resume will go here.
+ */
+var work = {
+  "jobs" : [
+    "employer" : "Lightlinks International Ltd",
+    "title" : "assisstant lighting designer",
+    "location" : "Hong Kong",
+    "dates" : "2016-2017",
+    "description" : "some description xxxxxx"
+  ]
+};
+
+var projects = {
+  "projects" : [
+    "title" : "Grand Lapa Hotel",
+    "dates" : "2016-2017",
+    "description" : "a hotel renovation project in Macau",
+    "images" : "/images/197x148.gif"
+  ]
+};
+
+var bio = {
+  "name" : "Vida",
+  "role" : "designer",
+  "contacts" : [
+    "mobile" : "77777777";
+    "email" : "vidali@gmail.com",
+    "github" : "yvonneli1213",
+    "location" : "Hong Kong"
+  ],
+  "biopic" : "images/fry.jpg",
+  "welcomeMessage" : "Hi",
+  "skills" : [
+      "CAD"
+  ],[
+      "PS"
+  ]
+};
+
+var education = {
+"school" : [
+  "name" : "HKPolyU",
+  "degreeDates" : "2016",
+  "location" : "Hong Kong",
+  "major" : "BSE"
+],
+"onlineCourses" : [
+  "title" : "frontend-nanodegree",
+  "dates" : "2017",
+  "school" : "Udacity"
+]
+};
