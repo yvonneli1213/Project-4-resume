@@ -26,7 +26,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #fff;
   line-height: 48px;
   display: inline;
 }
@@ -100,21 +100,21 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #afafaf;
   display: none;
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #c1c1c1;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #afafaf;
 }
 
 .white-text {
   font-weight: bold;
-  color: #fff;
+  color: #f4f4f4;
 }
 
 .gray {
@@ -129,7 +129,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-image: url(C:/Users/Yvonne/Desktop/Udacity/resume-master/images/head.jpg);
 }
 
 .flex-box {

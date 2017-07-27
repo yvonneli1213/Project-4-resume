@@ -28,19 +28,19 @@ This is empty on purpose! Your code to build the resume will go here.
      "degree" : "Bachelor",
      "dates": "2012-2016",
      "location": "Hong Kong",
-     "major": "BSE"
+     "majors": ["BSE"]
    },
      {"name": "UCL",
      "degree" : "Master",
      "dates": "2017-2018",
      "location": "London",
-     "major": "Light and Lighting"
+     "majors": ["Light and Lighting"]
    }],
    "onlineCourses": [
      {"title": "frontend-nanodegree",
      "dates": "2017-now",
      "school": "Udacity",
-     "web" : "https://www.udacity.com/"
+     "url" : "https://www.udacity.com/"
    }
   ]
 };
@@ -85,33 +85,22 @@ This is empty on purpose! Your code to build the resume will go here.
    ]
  };
 
-// Display functions:
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(formattedRole);
-
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").prepend(formattedName);
 
 bio.display = function () {
   var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-  $(".flex-box").append(formattedMobile);
-
   var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-  $(".flex-box").append(formattedEmail);
-
   var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-  $(".flex-box").append(formattedGithub);
-
   var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-  $(".flex-box").append(formattedLocation);
-
   var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
-  $("#header").append(formattedPic);
-
   var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-  $("#header").append(formattedWelcome);
+
+  $("#header").append(formattedPic, formattedWelcome);
+  $(".flex-box").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
 
   $("#header").append(HTMLskillsStart);
+  var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+  var formattedName = HTMLheaderName.replace("%data%", bio.name);
+  $("#header").prepend(formattedName,formattedRole);
 
   for (var i=0; i < bio.skills.length; i++) {
       var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
@@ -157,7 +146,7 @@ bio.display = function () {
      var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
      $(".education-entry").append(formattedLocation);
 
-     var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+     var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors);
      $(".education-entry").append(formattedMajor);
    }
  };
@@ -176,7 +165,7 @@ bio.display = function () {
      $(".education-entry").append(formattedDates);
 
      var formattedWebName = HTMLonlineURL.replace("%data%", education.onlineCourses[i].web);
-     var formattedWeb = formattedWebName.replace("#", education.onlineCourses[i].web);
+     var formattedWeb = formattedWebName.replace("#", education.onlineCourses[i].url);
      $(".education-entry").append(formattedWeb);
    }
  };
@@ -201,11 +190,14 @@ work.display = function () {
   }
 };
 
+education.display = function (){
+  education.schools.display();
+  education.onlineCourses.display();
+};
+
 bio.display();
 work.display();
 projects.display();
-education.schools.display();
-education.onlineCourses.display();
-
+education.display();
 // Map section:
 $("#mapDiv").append(googleMap);
